@@ -1,10 +1,12 @@
+const VALID_EMBED_FORMATS = ['png', 'jpg', 'gif'];
+
 async function processResponses (msg) {
   for (const response in this.responses) {
     if (msg.isMentioned(this.user) && new RegExp(response).test(msg.content.replace(/ /g, ''))) {
       const media = this.responses[response];
-      const content = media.endsWith('webm')
-        ? media
-        : { embed: { image: { url: media } } };
+      const content = VALID_EMBED_FORMATS.some(format => media.endsWith(format))
+        ? { embed: { image: { url: media } } }
+        : media;
 
       msg.channel.send(content);
       return true;
