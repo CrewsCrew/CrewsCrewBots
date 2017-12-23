@@ -3,6 +3,8 @@ const fs = require('fs');
 
 const Events = require('./events');
 
+const BOT_PACKAGE = require('./package.json');
+
 class CrewsCrewBot extends Client {
   constructor () {
     super();
@@ -19,7 +21,7 @@ class CrewsCrewBot extends Client {
       .on('message', Events.onMessage);
   }
 
-  loadCommands() {
+  loadCommands () {
     fs.readdir(`${__dirname}/commands/`, (err, files) => {
       if (err) {
         return console.log(err.stack);
@@ -36,11 +38,14 @@ class CrewsCrewBot extends Client {
     });
   }
 
-  updateResponses (override) {
-    console.log(override);
+  updateResponses (override = {}) {
     this.responses = Object.assign(this.responses, override);
 
     fs.writeFileSync('./responses.json', JSON.stringify(this.responses, '', '  '))
+  }
+
+  get package () {
+    return BOT_PACKAGE;
   }
 }
 
