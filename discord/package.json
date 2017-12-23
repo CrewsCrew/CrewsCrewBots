@@ -1,0 +1,27 @@
+{
+  "name": "crewscrewdiscordbot",
+  "version": "0.0.1",
+  "description": "A Discord bot for the r/CrewsCrew Discord server",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrewsCrew/CrewsCrewBots.git"
+  },
+  "keywords": [
+    "terrycrews",
+    "crewscrew",
+    "discord"
+  ],
+  "author": "Aetheryx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CrewsCrew/CrewsCrewBots/issues"
+  },
+  "homepage": "https://github.com/CrewsCrew/CrewsCrewBots#readme",
+  "dependencies": {
+    "discord.js": "^11.2.1"
+  }
+}
